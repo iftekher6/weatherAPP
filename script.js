@@ -7,8 +7,8 @@ function getWeather() {
         return;
     }
 
-    const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
+    const currentWeatherUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
 
     fetch(currentWeatherUrl)
         .then(response => response.json())
@@ -50,7 +50,7 @@ function displayWeather(data) {
         weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
     } else {
         const cityName = data.location.name;
-        const temperature = Math.round(data.current.temp_c); // Convert to Celsius
+        const temperature = Math.round(data.current.temp_c); 
         const description = data.current.condition.text;
        
         const iconUrl = data.current.condition.icon;
@@ -81,7 +81,7 @@ function displayHourlyForecast(hourlyData) {
 
     next24Hours.forEach(item => {
       
-        const dateTime = new Date(item.time_epoch * 1000); // Convert timestamp to milliseconds
+        const dateTime = new Date(item.time_epoch * 1000); 
         const hour = dateTime.getHours();
         const iconUrl = item.condition.icon
         const temperature = Math.round(item.temp_c); 
