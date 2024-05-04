@@ -8,7 +8,7 @@ function getWeather() {
     }
 
     const currentWeatherUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
+    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}`;
 
     fetch(currentWeatherUrl)
         .then(response => response.json())
